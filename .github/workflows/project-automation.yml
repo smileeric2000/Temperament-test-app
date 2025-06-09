@@ -1,0 +1,16 @@
+name: Project Board Automation
+
+on:
+  issues:
+    types: [opened, edited, reopened, closed]
+  pull_request:
+    types: [opened, edited, closed]
+
+jobs:
+  update-project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v1
+        with:
+          project-url: https://github.com/users/smileeric2000/projects/2
+          github-token: ${{ secrets.GITHUB_TOKEN }}
