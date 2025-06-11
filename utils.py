@@ -18,13 +18,11 @@ def generate_pdf_report(name, temperament, description):
     return file_path
 
 
-def set_background(image_path):
-    with open(image_path, "rb") as img_file:
-        encoded = base64.b64encode(img_file.read()).decode()
+def set_background(base64_string):
     css = f"""
     <style>
     .stApp {{
-        background-image: url("data:image/png;base64,{encoded}");
+        background-image: url("data:image/png;base64,{base64_string}");
         background-size: cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
